@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "css": "./node_modules/@tailwindcss/cli/dist/index.mjs -i style.css -o ./out.css",
+    "js": "bun build --minify --target=browser --outfile=./script.js ./build/dev/javascript/frontend/frontend.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.12",
+    "tailwindcss": "^4.0.12"
+  }
+}
