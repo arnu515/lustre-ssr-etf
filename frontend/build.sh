@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 gleam build
 
 bun js
