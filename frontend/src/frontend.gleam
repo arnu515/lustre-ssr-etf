@@ -18,9 +18,9 @@ fn get_raw_init_data() -> Option(BitArray)
 fn get_init_data() -> promise.Promise(Option(model.Model)) {
   case get_raw_init_data() {
     Some(data) -> {
-      use res <- promise.await(etf_js.to_dynamic(data))
+      use res <- promise.await(etf_js.decode(data, model.decoder()))
       option.from_result(res)
-      promise.resolve(Some(model.Model(0)))
+      |> promise.resolve
     }
     None -> promise.resolve(None)
   }

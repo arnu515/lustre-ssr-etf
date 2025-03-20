@@ -1,6 +1,5 @@
 import backend/context
 import backend/ser
-import gleam/dynamic
 import gleam/option.{type Option, None, Some}
 import lustre/attribute.{attribute}
 import lustre/element
@@ -25,7 +24,7 @@ pub fn root_html(model: model.Model, children: Option(element.Element(msg))) {
         attribute.name("viewport"),
       ]),
       html.link([attribute.rel("stylesheet"), attribute.href("/style.css")]),
-      ser.binary_to_script(ser.to_etf(dynamic.from(model))),
+      ser.binary_to_script(ser.to_etf_with_compression(model.encode(model))),
       html.title([], "Wilkommen auf App"),
     ]),
     html.body([], [
